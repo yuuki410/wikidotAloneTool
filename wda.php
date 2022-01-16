@@ -68,13 +68,8 @@ if($category=="wanderers" || $category=="wanderers-adult"){
 <body>
 <div class="side-block">
     <div class="heading" id="htmlcontent">
-        <p><a>Wikidot Alone Tool</a></p>
-    </div>
-    <div class="menu-item">
+        <p>Wikidot Alone Tool
         <?php
-            if(!empty($usercontent)){
-                echo($usercontent);
-            }
             echo("<a href=\"");
             echo($site);
             echo("edit.php?user=");
@@ -85,7 +80,15 @@ if($category=="wanderers" || $category=="wanderers-adult"){
             } else {
                 echo("edit");
             }
-            echo("\" target=\"_blank\">(编辑)</a>");
+            echo("\" target=\"_blank\">(编辑用户内容)</a>");
+        ?>
+        </p>
+    </div>
+    <div class="menu-item">
+        <?php
+            if(!empty($usercontent)){
+                echo($usercontent);
+            }
         ?>
     </div>
     <div class="heading" id="bookmark">
