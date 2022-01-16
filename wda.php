@@ -66,14 +66,18 @@ if($category=="wanderers" || $category=="wanderers-adult"){
 <script src="https://kit.fontawesome.com/cea948d15e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="side-block" style="display:none">
+<div class="side-block">
     <div class="heading" id="htmlcontent">
         <p><a>Wikidot Alone Tool</a></p>
     </div>
     <div class="menu-item">
         <?php
             echo($usercontent);
-            echo("<a href=\"" + $site + "edit.php?user=" + $user + "&type=usercontent&mode=");
+            echo("<a href=\"");
+            echo($site);
+            echo("edit.php?user=");
+            echo($user);
+            echo("&type=usercontent&mode=");
             if(empty($usercontent)){
                 echo("submit");
             } else {
@@ -83,14 +87,27 @@ if($category=="wanderers" || $category=="wanderers-adult"){
         ?>
     </div>
     <div class="heading" id="bookmark">
-        <p>书签</p> <?php echo("<a href=\"" + $site + "edit.php?user=" + $user + "&type=bookmark&mode=submit\" target=\"_blank\">(新书签)</a>"); ?>
+        <p>书签</p>
+        <?php
+            echo("<a href=\"");
+            echo($site);
+            echo("edit.php?user=");
+            echo($user);
+            echo("&type=bookmark&mode=submit\" target=\"_blank\">(新书签)</a>");
+        ?>
     </div>
     <div class="menu-item">
         <ul>
         <?php
             foreach($bookmark as $item){
                 echo("<li class=\"bookmark\">");
-                echo("<a href=\"" + $site + "edit.php?user=" + $user + "&type=bookmark&title=" + urlencode($item["title"]) + "\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
+                echo("<a href=\"");
+                echo($site);
+                echo("edit.php?user=");
+                echo($user);
+                echo("&type=bookmark&title=");
+                echo(urlencode($item["title"]));
+                echo("\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
                 echo("<a href=");
                 echo($item["url"]);
                 echo(" target=\"_blank\">");
@@ -102,7 +119,14 @@ if($category=="wanderers" || $category=="wanderers-adult"){
         </ul>
     </div>
     <div class="heading" id="snippet">
-        <p>代码片段</p> <?php echo("<a href=\"" + $site + "edit.php?user=" + $user + "&type=snippet&mode=submit\" target=\"_blank\">(新片段)</a>"); ?>
+        <p>代码片段</p>
+        <?php
+            echo("<a href=\"");
+            echo($site);
+            echo("edit.php?user=");
+            echo($user);
+            echo("&type=snippet&mode=submit\" target=\"_blank\">(新片段)</a>");
+        ?>
     </div>
     <div class="menu-item">
         <ul>
@@ -110,7 +134,13 @@ if($category=="wanderers" || $category=="wanderers-adult"){
             $count = 0;
             foreach($snippet as $item){
                 echo("<li class=\"snippet\">");
-                echo("<a href=\"" + $site + "edit.php?user=" + $user + "&type=snippet&title=" + urlencode($item["title"]) + "\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
+                echo("<a href=\"");
+                echo($site);
+                echo("edit.php?user=");
+                echo($user);
+                echo("&type=snippet&title=");
+                echo(urlencode($item["title"]));
+                echo("\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
 
                 echo("<textarea class=\"snippet\" id=\"snippet-");
                 echo($count);
