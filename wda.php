@@ -169,7 +169,7 @@ if($category=="wanderers" || $category=="wanderers-adult"){
         ?>
         </ul>
     </div>
-    <div class="license" style="font-size:small;">Powered by <a href="https://wda.yuuki.eu.org/">Wikidot Alone Tool</a>.</div>
+    <div class="license" style="font-size:smaller;">Powered by <a href="https://wda.yuuki.eu.org/">Wikidot Alone Tool</a>.</div>
 </div>
 </body>
 </html>

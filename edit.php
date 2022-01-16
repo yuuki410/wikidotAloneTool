@@ -28,7 +28,7 @@ if($mode=="edit"){
         case "snippet":
             $title = $_GET["title"];
             if($stmt = mysqli_prepare($db, "SELECT * FROM ? WHERE `username`=? AND `title`=?")){
-                mysqli_stmt_bind_param($stmt, "sss", $type+"s", $user, $title);
+                mysqli_stmt_bind_param($stmt, "sss", $type."s", $user, $title);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $content);
                 mysqli_stmt_fetch($stmt);
