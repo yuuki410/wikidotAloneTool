@@ -72,7 +72,9 @@ if($category=="wanderers" || $category=="wanderers-adult"){
     </div>
     <div class="menu-item">
         <?php
-            echo($usercontent);
+            if(!empty($usercontent)){
+                echo($usercontent);
+            }
             echo("<a href=\"");
             echo($site);
             echo("edit.php?user=");
@@ -87,7 +89,7 @@ if($category=="wanderers" || $category=="wanderers-adult"){
         ?>
     </div>
     <div class="heading" id="bookmark">
-        <p>书签</p>
+        <p>书签
         <?php
             echo("<a href=\"");
             echo($site);
@@ -95,31 +97,34 @@ if($category=="wanderers" || $category=="wanderers-adult"){
             echo($user);
             echo("&type=bookmark&mode=submit\" target=\"_blank\">(新书签)</a>");
         ?>
+        </p>
     </div>
     <div class="menu-item">
         <ul>
         <?php
-            foreach($bookmark as $item){
-                echo("<li class=\"bookmark\">");
-                echo("<a href=\"");
-                echo($site);
-                echo("edit.php?user=");
-                echo($user);
-                echo("&type=bookmark&title=");
-                echo(urlencode($item["title"]));
-                echo("\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
-                echo("<a href=");
-                echo($item["url"]);
-                echo(" target=\"_blank\">");
-                echo($item["title"]);
-                echo("</a>");
-                echo("</li>");
+            if(!empty($bookmark)){
+                foreach($bookmark as $item){
+                    echo("<li class=\"bookmark\">");
+                    echo("<a href=\"");
+                    echo($site);
+                    echo("edit.php?user=");
+                    echo($user);
+                    echo("&type=bookmark&title=");
+                    echo(urlencode($item["title"]));
+                    echo("\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
+                    echo("<a href=");
+                    echo($item["url"]);
+                    echo(" target=\"_blank\">");
+                    echo($item["title"]);
+                    echo("</a>");
+                    echo("</li>");
+                }
             }
         ?>
         </ul>
     </div>
     <div class="heading" id="snippet">
-        <p>代码片段</p>
+        <p>代码片段
         <?php
             echo("<a href=\"");
             echo($site);
@@ -127,33 +132,36 @@ if($category=="wanderers" || $category=="wanderers-adult"){
             echo($user);
             echo("&type=snippet&mode=submit\" target=\"_blank\">(新片段)</a>");
         ?>
+        </p>
     </div>
     <div class="menu-item">
         <ul>
         <?php
-            $count = 0;
-            foreach($snippet as $item){
-                echo("<li class=\"snippet\">");
-                echo("<a href=\"");
-                echo($site);
-                echo("edit.php?user=");
-                echo($user);
-                echo("&type=snippet&title=");
-                echo(urlencode($item["title"]));
-                echo("\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
+            if(!empty($snippet)){
+                $count = 0;
+                foreach($snippet as $item){
+                    echo("<li class=\"snippet\">");
+                    echo("<a href=\"");
+                    echo($site);
+                    echo("edit.php?user=");
+                    echo($user);
+                    echo("&type=snippet&title=");
+                    echo(urlencode($item["title"]));
+                    echo("\" target=\"_blank\"><i class=\"fas fa-edit\">E</i></a> ");
 
-                echo("<textarea class=\"snippet\" id=\"snippet-");
-                echo($count);
-                echo("\">");
-                echo(addslashes($item["content"]));
-                echo("</textarea>");
+                    echo("<textarea class=\"snippet\" id=\"snippet-");
+                    echo($count);
+                    echo("\">");
+                    echo(addslashes($item["content"]));
+                    echo("</textarea>");
 
-                echo("<button class=\"copy-button\" onclick=\"execCopy('snippet-");
-                echo($count);
-                echo("')\">");
-                echo($item["title"]);
-                echo("</button>");
-                echo("</li>");
+                    echo("<button class=\"copy-button\" onclick=\"execCopy('snippet-");
+                    echo($count);
+                    echo("')\">");
+                    echo($item["title"]);
+                    echo("</button>");
+                    echo("</li>");
+                }
             }
         ?>
         </ul>
