@@ -42,6 +42,7 @@
                             mysqli_stmt_bind_param($stmt, "ss", $_POST["user"], $_POST["token"]);
                             mysqli_stmt_execute($stmt);
                             mysqli_stmt_close($stmt);
+                            setcookie("token", $_POST["token"], time()+2592000);
                             echo("初始化成功！");
                         }
                     } else {

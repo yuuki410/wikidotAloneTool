@@ -28,7 +28,8 @@ if($mode=="edit"){
         case "snippet":
             $title = $_GET["title"];
             if($stmt = mysqli_prepare($db, "SELECT * FROM ? WHERE `username`=? AND `title`=?")){
-                mysqli_stmt_bind_param($stmt, "sss", $type."s", $user, $title);
+                $table=$type."s";
+                mysqli_stmt_bind_param($stmt, "sss", $table, $user, $title);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $content);
                 mysqli_stmt_fetch($stmt);
@@ -58,16 +59,16 @@ if($mode=="edit"){
     <hr />
     <form action="submit.php" method="post">
         <?php
-        echo("<input type=\"hidden\" name=\"user\" value\"");
+        echo("<input type=\"hidden\" name=\"user\" value=\"");
         echo($user);
         echo("\">");
-        echo("<input type=\"hidden\" name=\"mode\" value\"");
+        echo("<input type=\"hidden\" name=\"mode\" value=\"");
         echo($mode);
         echo("\">");
-        echo("<input type=\"hidden\" name=\"type\" value\"");
+        echo("<input type=\"hidden\" name=\"type\" value=\"");
         echo($type);
         echo("\">");
-        echo("<input type=\"hidden\" name=\"orititle\" value\"");
+        echo("<input type=\"hidden\" name=\"orititle\" value=\"");
         echo($title);
         echo("\">");
         if($type!="usercontent"){
